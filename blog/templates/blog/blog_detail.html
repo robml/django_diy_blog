@@ -1,0 +1,22 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>{{ blog.title }}</h1>
+
+  <p><strong>Post date</strong> {{ blog.post_date }}</p>
+  <p><strong>Author:</strong> <a href="{% url 'blogauthor-detail' blog.author.pk %}">{{ blog.author }}</a></p> <!-- author detail link not yet defined -->
+  
+  <p><strong>Description:</strong><br/>
+     {{ blog.description }}</p> 
+
+  <div style="margin-left:20px;margin-top:20px">
+    <h4>Comments</h4>
+
+    {% for comment in blog.comment_set.all %}
+      <hr>
+        <p>{{comment.author}} ({{comment.post_date}}) - {{comment.comment}}</p>
+    {% endfor %}
+    <hr>
+    <p><a href="{% url 'comment_create' blog.pk %}">Add a new comment</a></p>
+  </div>
+{% endblock %}

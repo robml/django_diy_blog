@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+{% block title %}<title>DIY Blog Index</title>{%endblock%}
+
+{% block content %}
+  <h1>DIY Blog Home</h1>
+  <p>Welcome to the DIY Blog, a website developed by <em>Climax Group</em>!</p>
+  <h2>Dynamic content</h2>
+  <p>The platform has the following record counts:</p>
+  <ul>
+    <li><strong>Blog Posts:</strong> {{ num_blogs }}</li>
+    <li><strong>Bloggers:</strong> {{ num_authors }}</li>
+    <li><strong>Comments:</strong> {{ num_comments }}</li>
+    <li><strong>Dr. Evil Posts:</strong> {{ num_blogs_dr_evil }}</li>
+  </ul>
+
+  <p>You have visited this page {{ num_visits }}{% if num_visits == 1 %} time{% else %} times{% endif %}.</p>
+{% endblock %}
